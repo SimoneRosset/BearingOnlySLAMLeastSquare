@@ -7,7 +7,7 @@ clc
 ################################### LOAD SUPPORT LIBRARIES ###################################
 ##############################################################################################
 
-addpath '../tools/g2o_wrapper'
+addpath './g2o_wrapper'
 source './utils.m'
 source './poses_linear_system.m'
 source './bearings_linear_system.m'
