@@ -238,9 +238,9 @@ endfor;
 
 # define optimization variables
 
-global kernel_threshold = 10;
-global damping = 1;
-global num_iterations = 20;
+global kernel_threshold = 5;
+global damping = 1e-5;
+global num_iterations = 10;
 
 disp('BearingOnlySLAMLeastSquare running...');
 

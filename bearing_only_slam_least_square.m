@@ -70,7 +70,7 @@ function [XR, XL, chi_stats_l, inliers_stats_l, chi_stats_r, inliers_stats_r, H,
                 b=b_r+b_l;
                 H=H_r+H_l+eye(system_size,system_size)*damping;
                 dx=zeros(system_size,1);
-                H((num_poses-1)*pose_dim+1:num_poses*pose_dim,:)=[];
+		H((num_poses-1)*pose_dim+1:num_poses*pose_dim,:)=[];
                 H(:,(num_poses-1)*pose_dim+1:num_poses*pose_dim)=[];
                 b((num_poses-1)*pose_dim+1:num_poses*pose_dim)=[];
                 dx=-H\b;			                                                                    # solve the linear system
