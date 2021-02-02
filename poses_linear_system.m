@@ -66,7 +66,7 @@ function [H,b, chi_tot, num_inliers]=buildLinearSystemPoses(XR, XL, ZR, associat
 
         for (i=1:num_measurements)
                 Omega=eye(6);
-                Omega(1:4,1:4)*=1e-5;
+                #Omega(1:4,1:4)*=1e-5;
                 pose_i_index=associations_ZR(1,i);
                 pose_j_index=associations_ZR(2,i);
                 z=ZR(:,:,i);

@@ -139,14 +139,21 @@ function plotState(XR_true, XR_guess, XR, XL_true, XL_guess, XL, chi_stats_l, in
         legend("Chi Poses"); grid; xlabel("iterations");
         subplot(3,2,2);
         plot(inliers_stats_r, 'b-', "linewidth", 2);
-        legend("#inliers"); grid; xlabel("iterations");
+        legend("#poses inliers"); grid; xlabel("iterations");
 
         subplot(3,2,3);
         plot(chi_stats_l, 'r-', "linewidth", 2);
         legend("Chi Landmark"); grid; xlabel("iterations");
         subplot(3,2,4);
         plot(inliers_stats_l, 'b-', "linewidth", 2);
-        legend("#inliers"); grid; xlabel("iterations");
+        legend("#landmarks inliers"); grid; xlabel("iterations");
+
+        subplot(3,2,5);
+        plot(chi_stats_l+chi_stats_r, 'r-', "linewidth", 2);
+        legend("Chi total"); grid; xlabel("iterations");
+        subplot(3,2,6);
+        plot(inliers_stats_l+inliers_stats_r, 'b-', "linewidth", 2);
+        legend("#total inliers"); grid; xlabel("iterations");
 
         figure(3);
         title("H matrix");

@@ -160,9 +160,9 @@ endfor;
 
 # define optimization variables
 
-global kernel_threshold = 10;
-global damping = 1;
-global num_iterations = 10;
+global kernel_threshold = 5;
+global damping = 1e-4;
+global num_iterations = 50;
 
 disp('BearingOnlySLAMLeastSquare running...');
 
@@ -173,82 +173,5 @@ XL_guess = XL_true;
 
 # plot results
 
-
-function plotState(XR_true, XR_guess, XR, XL_true, XL_guess, XL, chi_stats_l, inliers_stats_l, chi_stats_r, inliers_stats_r, H)
-        # Plot State
-        figure(1);
-        hold on;
-        grid;
-
-        subplot(2,2,1);
-        title("Landmark Initial Guess");
-        plot(XL_true(1,:),XL_true(2,:),'b*',"linewidth",2);
-        hold on;
-        plot(XL_guess(1,:),XL_guess(2,:),'ro',"linewidth",2);
-        legend("Landmark True", "Guess");grid;
-
-
-        subplot(2,2,2);
-        title("Landmark After Optimization");
-        plot(XL_true(1,:),XL_true(2,:),'b*',"linewidth",2);
-        hold on;
-        plot(XL(1,:),XL(2,:),'ro',"linewidth",2);
-        legend("Landmark True", "Guess");grid;
-
-
-        subplot(2,2,3);
-        title("Poses Initial Guess");
-        plot(squeeze(XR_true(1,3,:)),squeeze(XR_true(2,3,:)),'b*-',"linewidth",2);
-        hold on;
-        plot(squeeze(XR_guess(1,3,:)),squeeze(XR_guess(2,3,:)),'ro-',"linewidth",2);
-        legend("Poses True", "Guess");grid;
-
-
-        subplot(2,2,4);
-        title("Poses After Optimization");
-        plot(squeeze(XR_true(1,3,:)),squeeze(XR_true(2,3,:)),'b*-',"linewidth",2);
-        hold on;
-        plot(squeeze(XR(1,3,:)),squeeze(XR(2,3,:)),'ro-',"linewidth",2);
-        legend("Poses True", "Guess"); grid;
-
-
-
-        figure(2);
-        hold on;
-        grid;
-        title("chi evolution");
-
-        subplot(3,2,1);
-        plot(chi_stats_r, 'r-', "linewidth", 2);
-        legend("Chi Poses"); grid; xlabel("iterations");
-        subplot(3,2,2);
-        plot(inliers_stats_r, 'b-', "linewidth", 2);
-        legend("#poses inliers"); grid; xlabel("iterations");
-
-        subplot(3,2,3);
-        plot(chi_stats_l, 'r-', "linewidth", 2);
-        legend("Chi Landmark"); grid; xlabel("iterations");
-        subplot(3,2,4);
-        plot(inliers_stats_l, 'b-', "linewidth", 2);
-        legend("#landmarks inliers"); grid; xlabel("iterations");
-
-        subplot(3,2,5);
-        plot(chi_stats_l+chi_stats_r, 'r-', "linewidth", 2);
-        legend("Chi total"); grid; xlabel("iterations");
-        subplot(3,2,6);
-        plot(inliers_stats_l+inliers_stats_r, 'b-', "linewidth", 2);
-        legend("#total inliers"); grid; xlabel("iterations");
-
-        figure(3);
-        title("H matrix");
-        H_ =  H./H;                      # NaN and 1 element
-        H_(isnan(H_))=0;                 # Nan to Zero
-        H_ = abs(ones(size(H_)) - H_);   # switch zero and one
-        H_ = flipud(H_);                 # switch rows
-        colormap(gray(64));
-        hold on;
-        image([0.5, size(H_,2)-0.5], [0.5, size(H_,1)-0.5], H_*64);
-        hold off;
-endfunction;
-
 plotState(XR_true, XR_guess, XR, XL_true, XL_guess, XL, chi_stats_l, inliers_stats_l, chi_stats_r, inliers_stats_r, H);
+
