@@ -29,12 +29,12 @@ Expected output :
 
 Optimization minimizes the global error but still the optimization is subject to local minima due to intrinsic structure of the problem. Open this repo in a terminal and run:
 
-'''
+```
 octave-cli # to open octave
 
 BearingOnlySLAMLeastSquare # in octave-cli
 
-'''
+```
 
 <p float="center">
   <img src="/images/noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/noise_map.png" width="45%%" title=" "/> 
@@ -45,12 +45,12 @@ BearingOnlySLAMLeastSquare # in octave-cli
 
 Optimization starting from the ground truth with zero noise on measurements produces always zero error, this proves the correctness of the implementation. Open this repo in a terminal and run:
 
-'''
+```
 octave-cli 
 
 test_no_noise
 
-'''
+```
 
 <p float="center">
   <img src="/images/no_noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/no_noise_map.png" width="45%%" title=" "/> 
