@@ -37,7 +37,7 @@ BearingOnlySLAMLeastSquare # in octave-cli
 """
 
 <p float="center">
-  <img src="/images/noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/map_chi.png" width="45%%" title=" "/> 
+  <img src="/images/noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/noise_map.png" width="45%%" title=" "/> 
 </p>
 
 
@@ -53,6 +53,6 @@ test_no_noise
 """
 
 <p float="center">
-  <img src="/images/no_noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/no_map_chi.png" width="45%%" title=" "/> 
+  <img src="/images/no_noise_chi.png" width="45%%" title=" "/ style="margin-right:10%"> <img src="/images/no_noise_map.png" width="45%%" title=" "/> 
 </p>
 
